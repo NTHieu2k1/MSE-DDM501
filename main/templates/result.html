@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Loan Approval Checker</h1>
+    <h3>Applicant's loan approval result:</h3>
+    <p>
+        Applicant's name: {{ name }}<br>
+        Applicant's age: {{ age }}<br>
+        Applicant's gender: {{ gender }}<br>
+        Loan request status: {{ status }}
+    </p>
+    <a href="/">Back to Home</a>
+{% endblock %}

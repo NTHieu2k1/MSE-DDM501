@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Loan Approval Checker</h1>
+    <h3>Please enter loan applicant's information.</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.name.label() }}
+        {{ form.name() }} <br>
+        {{ form.age.label() }}
+        {{ form.age() }} <br>
+        {{ form.gender.label() }}
+        {{ form.gender() }} <br>
+        {{ form.education.label() }}
+        {{ form.education() }} <br>
+        {{ form.income.label() }}
+        {{ form.income() }} <br>
+        {{ form.exp.label() }}
+        {{ form.exp() }} <br>
+        {{ form.home_ownership.label() }}
+        {{ form.home_ownership() }} <br>
+        {{ form.amount.label() }}
+        {{ form.amount() }} <br>
+        {{ form.intent.label() }}
+        {{ form.intent() }} <br>
+        {{ form.interest_rate.label() }}
+        {{ form.interest_rate() }} <br>
+        {{ form.credit_score.label() }}
+        {{ form.credit_score() }} <br>
+        {{ form.credit_hist_len.label() }}
+        {{ form.credit_hist_len() }} <br>
+        {{ form.prev_loan_default.label() }}
+        {{ form.prev_loan_default() }} <br>
+
+        {{ form.submit() }}
+    </form>
+{% endblock %}
