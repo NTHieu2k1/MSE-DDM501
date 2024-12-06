@@ -1,4 +1,4 @@
-name: Docker Image CI + GitLab sync
+name: GitLab sync + Docker CI/CD
 
 on:
   - push
@@ -7,7 +7,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    name: Git Repo Sync (GitHub - GitLab)
+    name: Git Repo Sync (GitHub -> GitLab)
     steps:
     - uses: actions/checkout@v4
       with:
@@ -19,7 +19,7 @@ jobs:
         target-token: ${{ secrets.TARGET_TOKEN }}
   build:
     runs-on: ubuntu-latest
-    name: Build Docker image
+    name: Build Docker image & push to DockerHub
     steps:
     - uses: actions/checkout@v4
     - name: Login to Docker Hub
