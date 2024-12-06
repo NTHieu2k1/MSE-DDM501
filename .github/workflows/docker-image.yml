@@ -1,0 +1,28 @@
+name: Docker Image CI + GitLab sync
+
+on:
+  - push
+  - delete
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Git Repo Sync (GitHub - GitLab)
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - uses: NTHieu2k1/git-repo-sync@v0.1.0
+      with:
+        target-url: ${{ secrets.TARGET_URL }}
+        target-username: ${{ secrets.TARGET_USERNAME }}
+        target-token: ${{ secrets.TARGET_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    name: Build Docker image
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build --tag nthieu2k1/mse-ddm501 .
+    - name: Push the Docker image to DockerHub
+      run: docker push nthieu2k1/mse-ddm501
