@@ -1,38 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Loan Approval Checker</h1>
-    <h3>Please enter loan applicant's information.</h3>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-
-        {{ form.name.label() }}
-        {{ form.name() }} <br>
-        {{ form.age.label() }}
-        {{ form.age() }} <br>
-        {{ form.gender.label() }}
-        {{ form.gender() }} <br>
-        {{ form.education.label() }}
-        {{ form.education() }} <br>
-        {{ form.income.label() }}
-        {{ form.income() }} <br>
-        {{ form.exp.label() }}
-        {{ form.exp() }} <br>
-        {{ form.home_ownership.label() }}
-        {{ form.home_ownership() }} <br>
-        {{ form.amount.label() }}
-        {{ form.amount() }} <br>
-        {{ form.intent.label() }}
-        {{ form.intent() }} <br>
-        {{ form.interest_rate.label() }}
-        {{ form.interest_rate() }} <br>
-        {{ form.credit_score.label() }}
-        {{ form.credit_score() }} <br>
-        {{ form.credit_hist_len.label() }}
-        {{ form.credit_hist_len() }} <br>
-        {{ form.prev_loan_default.label() }}
-        {{ form.prev_loan_default() }} <br>
-
-        {{ form.submit() }}
-    </form>
+    <div class="card shadow-sm rounded-2">
+        <div class="card-header py-3 bg-light pt-4">
+            <h1 class="text-center">Loan Approval Checker</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="mb-4">Please enter loan customer's information:</h4>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.name.label(class="form-label") }}
+                    {{ form.name(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.age.label(class="form-label") }}
+                    {{ form.age(class="form-control") }}
+                    <div class="form-text">Age must be at least 18 years old.</div>
+                </div>
+                <div class="mb-3">
+                    {{ form.gender.label(class="form-label") }}
+                    {{ form.gender(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.education.label(class="form-label") }}
+                    {{ form.education(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.income.label(class="form-label") }}
+                    {{ form.income(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.exp.label(class="form-label") }}
+                    {{ form.exp(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.home_ownership.label(class="form-label") }}
+                    {{ form.home_ownership(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.amount.label(class="form-label") }}
+                    {{ form.amount(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.intent.label(class="form-label") }}
+                    {{ form.intent(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.interest_rate.label(class="form-label") }}
+                    {{ form.interest_rate(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.credit_score.label(class="form-label") }}
+                    {{ form.credit_score(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.credit_hist_len.label(class="form-label") }}
+                    {{ form.credit_hist_len(class="form-control") }}
+                </div>
+                <div class="mb-3 form-check">
+                    {{ form.prev_loan_default.label(class="form-check-label") }}
+                    {{ form.prev_loan_default(class="form-check-input") }}
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
 {% endblock %}

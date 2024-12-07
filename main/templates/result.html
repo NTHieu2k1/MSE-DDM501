@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Loan Approval Checker</h1>
-    <h3>Applicant's loan approval result:</h3>
-    <p>
-        Applicant's name: {{ name }}<br>
-        Applicant's age: {{ age }}<br>
-        Applicant's gender: {{ gender }}<br>
-        Loan request status: {{ status }}
-    </p>
-    <a href="/">Back to Home</a>
+    <div class="card shadow-sm rounded-2">
+        <div class="card-header py-3 bg-light pt-4">
+            <h1 class="text-center">Loan Approval Checker</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="mb-4">Approval result:</h4>
+            <div>
+                Customer's name: {{ name }}<br>
+                Customer's age: {{ age }}<br>
+                Customer's gender: {{ gender }}
+            </div>
+            {% if status == "Approved" %}
+                <p>Loan request status: <strong class="text-success">{{ status|upper }}</strong></p>
+            {% else %}
+                <p>Loan request status: <strong class="text-danger">{{ status|upper }}</strong></p>
+            {% endif %}
+            <a class="btn btn-outline-primary btn-sm mt-4" href="/">Back to Home</a>
+        </div>
+    </div>
 {% endblock %}
