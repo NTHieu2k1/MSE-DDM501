@@ -8,12 +8,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy main web app's source code
 COPY main ./main
 COPY models ./models
-EXPOSE 6000
+EXPOSE 6500
 
 # Setup app user
 RUN useradd mse_hieunt
 USER mse_hieunt
-ENV FLASK_RUN_PORT 6500
+ENV FLASK_RUN_PORT=6500
 
 # Run app
 CMD ["flask", "--app", "main", "run", "--host", "0.0.0.0"]
