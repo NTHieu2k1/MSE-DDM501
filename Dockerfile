@@ -16,4 +16,4 @@ USER mse_hieunt
 ENV FLASK_RUN_PORT 6500
 
 # Run app
-CMD ["flask", "--app", "main", "run", "host", "0.0.0.0"]
+CMD ["flask", "--app", "main", "run", "--host", "0.0.0.0"]
